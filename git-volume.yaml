@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: git
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+    volumeMounts:
+    - mountPath: /mnt
+      name: kubernetes
+  volumes:
+  - name: kubernetes
+    gitRepo:
+      repository: "https://github.com/SuvraSandeep/kubernetes.git"
+      revision: "main"
